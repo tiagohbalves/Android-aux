@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "300812142042",
+    "firebase_url": "https://chatapp-fe9bb.firebaseio.com",
+    "project_id": "chatapp-fe9bb",
+    "storage_bucket": "chatapp-fe9bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300812142042:android:27afefa72d8e13a3",
+        "android_client_info": {
+          "package_name": "br.com.tiagohbalves.cursoandroid.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300812142042-ver921vvjt1hsrrn597jnp8a3ke8qcr6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.tiagohbalves.cursoandroid.chatapp",
+            "certificate_hash": "52ff024b500771fa14c3229dcf9f5676ed0e5194"
+          }
+        },
+        {
+          "client_id": "300812142042-r5vc2ok82av7m4a73v7ktua7ieahjomh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSfOQwBFNQ6OaDxvi7sAFPFLgB_mCNgiM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "300812142042-r5vc2ok82av7m4a73v7ktua7ieahjomh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

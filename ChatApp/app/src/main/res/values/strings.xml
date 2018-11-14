@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Chat App</string>
+    <string name="content_description_logo">Image not found</string>
+    <string name="request_name_login_screen">Digite seu nome</string>
+    <string name="cadastrar_button">Cadastrar</string>
+    <string name="validacao_string">Validação</string>
+    <string name="validacao_text">Você recebeu um SMS para validação do seu número, digite o código de validação abaixo.</string>
+    <string name="digite_code">Digite o código</string>
+</resources>
