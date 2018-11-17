@@ -1,29 +1,41 @@
 package br.com.tiagohbalves.cursoandroid.chatapp;
 
+import android.Manifest;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.HashMap;
 import java.util.Random;
 
+import br.com.tiagohbalves.cursoandroid.chatapp.helper.Permissao;
+import br.com.tiagohbalves.cursoandroid.chatapp.helper.Preferencias;
 import br.com.tiagohbalves.cursoandroid.chatapp.utils.Mask;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText name;
-    EditText phoneNumber;
-    EditText phoneDD;
-    EditText phoneDDI;
-    Button cadastrar;
+    private EditText name;
+    private EditText phoneNumber;
+    private EditText phoneDD;
+    private EditText phoneDDI;
+    private Button cadastrar;
+    private  final String[] permissoesNecessarias = new String[]{
+            Manifest.permission.SEND_SMS
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+        Permissao.validaPermissoes(1,this ,permissoesNecessarias);
 
         phoneNumber =  (EditText) findViewById(R.id.tel_number);
         phoneDD = (EditText)findViewById(R.id.ddcode);
@@ -105,12 +117,39 @@ public class LoginActivity extends AppCompatActivity {
                 // Gerar token (Deveria ser via server
                 Random random = new Random();
                 int randNum = random.nextInt(8999)+1000;
-                String tokek = String.valueOf(randNum);
+                String token = String.valueOf(randNum);
+                String mensagemEnvio = "Chat App código de Confirmação: "+ token;
+
+                Preferencias preferencias = new Preferencias(LoginActivity.this);
+                preferencias.savePreferenceFiles(nome,telefoneSemFormatacao,token);
+
+
+//                HashMap<String,String> usuario = preferencias.getDadosUsuario();
+
+                //Envio SMS
+
+                boolean enviado = envioSMS("+"+telefoneSemFormatacao,mensagemEnvio);
+
 
             }
         });
 
 
 
+    }
+
+    private boolean envioSMS(String telefone,String mensagem){
+
+
+        try{
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(telefone,null,mensagem,null,null);
+            return true;
+
+
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 }
